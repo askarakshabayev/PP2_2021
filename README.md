@@ -277,4 +277,6 @@ git example
 git status - status of the code
 git add filename (git add .)
 git diff filename (git diff)
+git commit -m "comment"
+git add origin link_to_git_repository
 
