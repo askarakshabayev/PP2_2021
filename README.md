@@ -1,3 +1,183 @@
+## Week 4
+regex
+
+## Week 3
+# What is Lambda function? (A lambda function can take any number of arguments, but can only have one expression.)
+# Function declaration with lambda (anonymous function inside another function)
+# Doubler / Tripler examples
+    def f(n):
+        return lambda a: a * n
+
+    doubler = f(2)
+    triple = f(3)
+
+    print(doubler(5))
+    print(doubler(6))
+
+    print(triple(5))
+    print(triple(6))
+
+# only even numbers from a list (using filter) 
+# only prime numbers from a list (using filter)
+# double all elements in list (using map)
+  --------------------------------------------
+# What is class?
+# OOP
+# Class object
+# Init function - constructor
+# Object methods
+# Self parameter
+ 
+# What is class Inheritance?
+# Parent class / Child class
+# Calling parent class init function 
+# super expression
+ 
+# What is iterator?
+# Iterator vs Iterable
+# iter(), next() - for list, for string
+# Example 1
+t = (10, 2, 8, 5)
+it = iter(t)
+
+print(next(t))
+print(next(t))
+print(next(t))
+
+# Example 2 (strings are also iterable objects)
+s = "abcd"
+it = iter(s)
+print(next(it))
+
+# Simple loops over containers
+# Own iterator class: iter, next methods
+class MyNumber:
+    def __iter__(self):
+        self.x = 1
+        return self
+
+    def __next__(self):
+        x = self.x
+        self.x += 1
+        return x
+
+n = MyNumber()
+
+it = iter(n)
+
+print(next(it))
+print(next(it))
+# StopIteration
+ 
+# What is Generator?
+The difference is that while a return statement terminates a function entirely, yield statement pauses the function saving all its states and later continues from there on successive calls.
+# Generator function
+# Generator object
+# Fibonacci
+
+# What is Scope?
+# Local scope
+# Global scope
+# Global keyword
+ 
+# What is module?
+# Alias while importing
+# Import from module
+ ◦ 
+# Python Date
+# Creating date object
+# strftime method
+ ◦ 
+# Python Math functions
+# min, max, pow, abs
+# math module - sqrt, floor, ceil
+ ◦ 
+# What is JSON?
+# Converting objects to JSON and vice-versa
+
+## Week 2
+Functions 
+1. Function definition
+2. function with arguments
+3. Arbitrary Arguments, *args
+4. Keyword Arguments
+5. Arbitrary Keyword Arguments, **kwargs
+def my_function(**kid):
+  print("His last name is " + kid["lname"])
+
+my_function(fname = "Tobias", lname = "Refsnes")
+------------------------------------------------
+6. multiple return values
+7. Recursion
+------------------------------------------------
+Collections:
+List:
+1. list example
+2. element of the list and negative index
+3. range
+4. list comprehension 
+[x ** 2 for x in range(1, 20)]
+??[x+1 if x >= 45 else x+5 for x in l]
+------------------------------------------------
+Tuple
+mytuple = ("apple", "banana", "cherry")
+tuple length
+Create Tuple With One Item
+thistuple = ("apple",)
+
+Example 1:
+list1 = ["Almas", "Aidar", "Zhanel", "Madiyar"]
+list2 = [18, 23, 34, 25]
+list3 = [(list1[i], list2[i]) for i in range(0, len(list1))]
+
+Example 2:
+# x = 1
+# y = 2
+# z = 3
+# a = 4
+
+(x, y, z, a) = (1, 2, 3, 4)
+
+(one, two) = range(1, 3)
+
+Set
+set_example = {"apple", "banana", "cherry"}
+set_example = {"abc", 34, True, 40, "male"}
+
+# list is ORDERED
+my_list = [10, 10, 10, 1, 1, 1, 2]
+my_set = set(my_list)
+print(my_set)
+------------------------------------------------
+add element to set
+------------------------------------------------
+update with multiple value
+my_set.update({10, 1, -4})
+------------------------------------------------
+my_set_2.discard(-10000)
+------------------------------------------------
+discard, remove
+------------------------------------------------
+A.union(B)
+------------------------------------------------
+A.intersection(B)
+------------------------------------------------
+A.difference(B) # A - B
+
+
+Dict
+thisdict = {
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+Examples:
+1. Create a function that collects only values with even index from a given list
+2. Create a function that mutates elements to square after given index. Elements before given index do not change.
+3. 
+
+
+
 ## Week 1
 1. Syllabus, assistants
 2. Midterm, Endterm, Project, Final Exam information
