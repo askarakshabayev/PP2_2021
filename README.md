@@ -1,3 +1,13 @@
+## Week 5
+1. Working with csv
+2. Module example (how to create setup file and install, virtual env)
+  from setuptools import setup, find_packages
+  setup(name='pip_lib_name', version='1.0', packages=find_packages())
+3. working with files (open method read - r, append - a, write - w)
+4. working with directories
+4.1 os module
+
+
 ## Week 4
 regex
 . - Один любой символ, кроме новой строки \n. (h.l.o -> hello, hillo, halbo)
@@ -6,6 +16,7 @@ regex
 \w - Любой символ (\w\w\w -> 123, a3b, a_!)
 \W	Любая не-буква, не-цифра и не подчёркивание
 [..] - Один из символов в скобках, а также любой символ из диапазона a-b [0-9][0-9A-Fa-f] -> 12, 1F, 4B
+[^aqz][0-9] a6 z9 b8
 [^..] - Любой символ, кроме перечисленных 
 \b	- Начало или конец слова (слева пусто или не-буква, справа буква и наоборот). В отличие от предыдущих соответствует позиции, а не символу \bвал вал, перевал, Перевалка
 ^	Starts with
@@ -19,7 +30,7 @@ $	Ends with
 *	Ноль или более, синоним {0,}
 +	Одно или более, синоним {1,}
 
-|	Either or
+|	Either or ([0-9]|[a-z])
 ()	Capture and group
 \b	Returns a match where the specified characters are at the beginning or at the end of a word (the "r" in the beginning is making sure that the string is being treated as a "raw string")
 
