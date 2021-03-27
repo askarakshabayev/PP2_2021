@@ -1,3 +1,399 @@
+## Week 9
+virtualenv
+pip install virtualenv
+python3 -m venv env
+source path_to_env/bin/activate
+pip install pygame
+--------------------------------
+import pygame
+
+size = width, height = (400, 300)
+screen = pygame.display.set_mode(size)
+pygame.init()
+
+
+def draw():
+    screen.fill((0, 0, 0))
+    font = pygame.font.Font(None, 50)
+    text = font.render("Hello, Pygame!", 1, (100, 255, 100))
+    text_x = width // 2 - text.get_width() // 2
+    text_y = height // 2 - text.get_height() // 2
+    text_w = text.get_width()
+    text_h = text.get_height()
+    screen.blit(text, (text_x, text_y))
+    pygame.draw.rect(screen, (0, 255, 0),
+                     (text_x - 10, text_y - 10, text_w + 20, text_h + 20), 1)
+
+
+draw()
+
+while pygame.event.wait().type != pygame.QUIT:
+    pygame.display.flip()
+
+pygame.quit()
+----------------------------------
+
+
+
+## Week 6
+abs()
+x = abs(-7.25)
+
+mylist = [True, True, True]
+x = all(mylist)
+
+
+-----------------------------
+any
+mylist = [False, True, False]
+x = any(mylist)
+
+# True since 1,3 and 4 (at least one) is true
+l = [1, 3, 4, 0]
+print(any(l))
+
+# False since both are False
+l = [0, False]
+print(any(l))
+
+# True since 5 is true
+l = [0, False, 5]
+print(any(l))
+
+# False since iterable is empty
+l = []
+print(any(l))
+
+# 0 is False
+d = {0: 'False'}
+print(any(d))
+
+# 1 is True
+d = {0: 'False', 1: 'True'}
+print(any(d))
+
+# 0 and False are false
+d = {0: 'False', False: 0}
+print(any(d))
+
+# iterable is empty
+d = {}
+print(any(d))
+
+# 0 is False
+# '0' is True
+d = {'0': 'False'}
+print(any(d))
+
+
+numbers = [1, 3, 5, 7]
+
+def is_even(n):
+    if n % 2 == 0:
+        return True
+    return False
+
+print(any(is_even(number) for number in numbers))
+-----------------------------
+callable
+def z():
+    print("Hello world")
+
+def f(x):
+    if callable(x):
+        x()
+    else:
+        print(x)
+
+f(z)
+f(5)
+
+# x = 5
+# print(callable(x))
+
+# def testFunction():
+#   print("Test")
+
+# y = testFunction
+# y()
+# print(callable(y))
+-----------------------------
+x = bin(36)
+
+bool()
+The object is empty, like [], (), {}
+The object is False
+The object is 0
+The object is None
+-----------------------------
+x = chr(97)
+-----------------------------
+compile(source, filename, mode, flag, dont_inherit, optimize)
+x = compile('print(55)\nprint(88)', 'test', 'exec')
+exec(x)
+-----------------------------
+x = divmod(5, 2)
+-----------------------------
+class dict(**kwarg)
+class dict(mapping, **kwarg)
+class dict(iterable, **kwarg)
+numbers = dict(x=5, y=0)
+print('numbers =', numbers)
+print(type(numbers))
+
+empty = dict()
+print('empty =', empty)
+print(type(empty))
+
+Using iterable
+# keyword argument is not passed
+numbers1 = dict([('x', 5), ('y', -5)])
+print('numbers1 =',numbers1)
+
+# keyword argument is also passed
+numbers2 = dict([('x', 5), ('y', -5)], z=8)
+print('numbers2 =',numbers2)
+
+# zip() creates an iterable in Python 3
+numbers3 = dict(dict(zip(['x', 'y', 'z'], [1, 2, 3])))
+print('numbers3 =',numbers3)
+
+Using mapping
+numbers1 = dict({'x': 4, 'y': 5})
+print('numbers1 =',numbers1)
+
+# you don't need to use dict() in above code
+numbers2 = {'x': 4, 'y': 5}
+print('numbers2 =',numbers2)
+
+# keyword argument is also passed
+numbers3 = dict({'x': 4, 'y': 5}, z=8)
+print('numbers3 =',numbers3)
+
+-----------------------------
+
+enumerate(iterable, start=0)
+Example 1
+grocery = ['bread', 'milk', 'butter']
+enumerateGrocery = enumerate(grocery)
+
+print(type(enumerateGrocery))
+
+# converting to list
+print(list(enumerateGrocery))
+
+# changing the default counter
+enumerateGrocery = enumerate(grocery, 10)
+print(list(enumerateGrocery))
+
+
+Example 2
+grocery = ['bread', 'milk', 'butter']
+
+for item in enumerate(grocery):
+  print(item)
+
+print('\n')
+for count, item in enumerate(grocery):
+  print(count, item)
+
+print('\n')
+# changing default start value
+for count, item in enumerate(grocery, 100):
+  print(count, item)
+-----------------------------
+filter(function, iterable)
+# list of letters
+letters = ['a', 'b', 'd', 'e', 'i', 'j', 'o']
+
+# function that filters vowels
+def filterVowels(letter):
+    vowels = ['a', 'e', 'i', 'o', 'u']
+
+    if(letter in vowels):
+        return True
+    else:
+        return False
+
+filteredVowels = filter(filterVowels, letters)
+
+print('The filtered vowels are:')
+for vowel in filteredVowels:
+    print(vowel)
+
+Example 2
+# random list
+randomList = [1, 'a', 0, False, True, '0']
+
+filteredList = filter(None, randomList)
+
+print('The filtered elements are:')
+for element in filteredList:
+    print(element)
+-----------------------------
+format(value[, format_spec])
+# d, f and b are type
+
+# integer
+print(format(123, "d"))
+
+# float arguments
+print(format(123.4567898, "f"))
+
+# binary format
+print(format(12, "b"))
+x = format(255, 'x')
+-----------------------------
+frozenset([iterable])
+# tuple of vowels
+vowels = ('a', 'e', 'i', 'o', 'u')
+
+fSet = frozenset(vowels)
+print('The frozen set is:', fSet)
+print('The empty frozen set is:', frozenset())
+
+# frozensets are immutable
+fSet.add('v')
+
+Example 2
+# Frozensets
+# initialize A and B
+A = frozenset([1, 2, 3, 4])
+B = frozenset([3, 4, 5, 6])
+
+# copying a frozenset
+C = A.copy()  # Output: frozenset({1, 2, 3, 4})
+print(C)
+
+# union
+print(A.union(B))  # Output: frozenset({1, 2, 3, 4, 5, 6})
+
+# intersection
+print(A.intersection(B))  # Output: frozenset({3, 4})
+
+# difference
+print(A.difference(B))  # Output: frozenset({1, 2})
+
+# symmetric_difference
+print(A.symmetric_difference(B))  # Output: frozenset({1, 2, 5, 6})
+-----------------------------
+try except
+-----------------------------
+dir
+class Person:
+  name = "John"
+  age = 36
+  country = "Norway"
+
+print(dir(Person))
+-----------------------------
+eval
+x = 'print(55)'
+eval(x)
+-----------------------------
+getatr
+class Person:
+  name = "John"
+  age = 36
+  country = "Norway"
+
+x = getattr(Person, 'age')
+-----------------------------
+hasatr
+class Person:
+  name = "John"
+  age = 36
+  country = "Norway"
+
+x = hasattr(Person, 'age')
+-----------------------------
+setatr
+class Person:
+  name = "John"
+  age = 36
+  country = "Norway"
+
+setattr(Person, 'age', 40)
+-----------------------------
+x = isinstance(5, int)
+x = isinstance("Hello", (float, int, str, list, dict, tuple))
+
+class myObj:
+  name = "John"
+
+y = myObj()
+
+x = isinstance(y, myObj)
+-----------------------------
+iter
+x = iter(["apple", "banana", "cherry"])
+print(next(x))
+print(next(x))
+print(next(x))
+-----------------------------
+map(function, iterables)
+def myfunc(n):
+  return len(n)
+
+x = map(myfunc, ('apple', 'banana', 'cherry'))
+print(list(x))
+-----------------------------
+def myfunc(a, b):
+  return a + b
+
+x = map(myfunc, ('apple', 'banana', 'cherry'), ('orange', 'lemon', 'pineapple'))
+-----------------------------
+max, min
+x = max("Mike", "John", "Vicky")
+a = (1, 5, 3, 9)
+x = max(a)
+-----------------------------
+open
+f = open("demofile.txt", "r")
+print(f.read())
+-----------------------------
+pow(x, y)
+x = pow(4, 3)
+x = pow(4, 3, 5) # Return the value of 4 to the power of 3, modulus 5 (same as (4 * 4 * 4) % 5):
+-----------------------------
+range(start, stop, step)
+-----------------------------
+reversed
+alph = ["a", "b", "c", "d"]
+ralph = reversed(alph)
+for x in ralph:
+  print(x)
+-----------------------------
+slice(start, end, step)
+# Create a tuple and a slice object. Use the slice object to get only the two first items of the tuple:
+a = ("a", "b", "c", "d", "e", "f", "g", "h")
+x = slice(2)
+print(a[x])
+x = slice(3, 5)
+print(a[x])
+x = slice(0, 8, 3)
+print(a[x])
+-----------------------------
+sorted
+a = ("b", "g", "a", "d", "f", "c", "h", "e")
+x = sorted(a)
+print(x)
+
+a = ("h", "b", "a", "c", "f", "d", "e", "g")
+x = sorted(a, reverse=True)
+print(x)
+-----------------------------
+str
+-----------------------------
+sum
+a = (1, 2, 3, 4, 5)
+x = sum(a)
+
+a = (1, 2, 3, 4, 5)
+x = sum(a, 7)
+
+
+
 ## Week 5
 1. Working with csv
 2. Module example (how to create setup file and install, virtual env)
