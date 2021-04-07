@@ -1,3 +1,20 @@
+## Week 10
+Ball Example 
+
+keys = filter(lambda x: 'K_' in x, dir(pygame))
+
+# pygame.key.get_pressed()
+# pressed = pygame.key.get_pressed()
+# pressed[pygame.K_UP]
+
+# Surface
+
+Working with Images
+Music and Sound Effects
+Geometric Drawing
+Fonts and Text
+More on Input
+
 ## Week 9
 virtualenv
 pip install virtualenv
