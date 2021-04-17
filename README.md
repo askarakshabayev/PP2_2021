@@ -1,3 +1,44 @@
+## Week 12:
+About database
+https://medium.com/omarelgabrys-blog/database-introduction-part-1-4844fada1fb0
+\l - list of database
+\c database_name -- connect to database (default)
+\dt - list of tables (current database)
+SELECT
+1. select * from table;
+2. select * from table where user_type='STANDARD_USER';
+3. select * from table where user_type='BLOGER' AND subscription_id=63; // OR
+4. select id, user_type, subscription_id from name_of_table where user_type='BLOGER' and subscription_id=64; 
+5. select * from table_name where condiction limit 10;
+6. select * from table_name order by subscription_id
+--------------------------------
+install postgres
+pip install psycopg2 (and additional libs)
+--------------------------------
+show how to create user and database, and grant privileges
+1. create user user_name with password 'password';
+2. create database database_name;
+3. grant all privileges on database database_name to user_name;
+
+cursor.fetchone()
+cursor.fetchmany(size=x)
+cursor.fetchall()
+--------------------------------
+configs and connect to database, execture command
+--------------------------------
+https://www.postgresqltutorial.com/postgresql-create-table/
+--------------------------------
+create tables programmatically
+--------------------------------
+insert data to table
+https://www.postgresqltutorial.com/postgresql-insert/
+--------------------------------
+select all inserted data
+
+
+
+
+
 ## Week 10
 Ball Example 
 
